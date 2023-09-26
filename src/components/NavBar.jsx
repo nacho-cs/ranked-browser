@@ -4,15 +4,15 @@ import { SearchBar } from "./SearchBar.jsx";
 export function NavBar() {
   const items = [
     {
-      href: "https://github.com/nacho-cs/nacho-cs.github.io",
+      href: "https://github.com/nacho-cs/ranked-browser",
       text: "GitHub",
     },
     {
-      href: "https://github.com/nacho-cs/nacho-cs.github.io/issues",
+      href: "https://github.com/nacho-cs/ranked-browser/issues",
       text: "Bugs",
     },
     {
-      href: "https://github.com/nacho-cs/nacho-cs.github.io/pulls",
+      href: "https://github.com/nacho-cs/ranked-browser/pulls",
       text: "Contribute",
     },
   ];
