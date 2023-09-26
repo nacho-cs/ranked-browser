@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 charts
+dist
 dist-ssr
 *.local
 
