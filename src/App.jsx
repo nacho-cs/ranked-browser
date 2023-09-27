@@ -7,8 +7,9 @@ import {
   RecordLeaderboard,
   Player,
   PlayerVs,
+  Search,
 } from "./pages";
-import { Route } from "wouter";
+import { Route } from "wouter-preact";
 
 export function App() {
   return (
@@ -30,6 +31,7 @@ export function App() {
       <Route path="/player/:player1/vs/:player2">
         {params => <PlayerVs {...params} />}
       </Route>
+      <Route path="/search/:query">{params => <Search {...params} />}</Route>
     </Theme>
   );
 }

@@ -1,8 +1,8 @@
 import { TextField, Button } from "@radix-ui/themes";
 import { Search } from "react-bootstrap-icons";
-import { useLocation } from "wouter";
+import { useLocation } from "wouter-preact";
 import { useRef } from "preact/compat";
-import { searchAtom, idx } from "../utils";
+import { searchAtom } from "../utils";
 import { useAtom } from "jotai";
 
 export function SearchBar() {
@@ -14,10 +14,8 @@ export function SearchBar() {
     <form
       onSubmit={e => {
         e.preventDefault();
-        const results = idx.search(search);
-        console.log(results);
-        if (results) {
-          setLocation(results[0].item.path);
+        if (search) {
+          setLocation(`/search/${search}`);
         }
       }}>
       <TextField.Root size="3" radius="large">
@@ -26,6 +24,7 @@ export function SearchBar() {
         </TextField.Slot>
         <TextField.Input
           placeholder="search anything..."
+          value={search}
           style={{ textAlign: "center" }}
           ref={inputRef}
           onChange={() => {
