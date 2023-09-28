@@ -68,11 +68,11 @@ export function MatchList({ player, vs }) {
             matchType === 2 ? (
               <HoverDetailedMatchCard id={match.match_id}>
                 {match.forfeit ? (
+                  <i>Forfeit</i>
+                ) : (
                   <Text as="span">
                     {formatTime(new Date(match.final_time))}
                   </Text>
-                ) : (
-                  <i>Forfeit</i>
                 )}
               </HoverDetailedMatchCard>
             ) : match.forfeit ? (
@@ -130,7 +130,9 @@ export function MatchList({ player, vs }) {
             </Tabs.Content>
           </Flex>
           <Flex py="3" justify="center">
-            <Button onClick={() => setSize(size + 1)}>Load more...</Button>
+            <Button onClick={() => setSize(prev => prev + 1)}>
+              Load more...
+            </Button>
           </Flex>
         </ScrollArea>
       </Tabs.Root>

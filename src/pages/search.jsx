@@ -9,16 +9,18 @@ export function Search({ query }) {
     <>
       <NavBar />
       <Flex direction="column" gap="5" py="7" px="9">
-        {results.map(result => {
+        {results.length > 0 ? results.map(result => {
           const { item } = result;
           return (
             <>
-              <Text as="span" color="gray">{item.path}</Text>
+              <Text as="span" color="gray">
+                {item.path}
+              </Text>
               <Link href={item.path}>{item.name}</Link>
               <Separator size="4" />
             </>
           );
-        })}
+        }) : <Text as="span">No results</Text>}
       </Flex>
     </>
   );
