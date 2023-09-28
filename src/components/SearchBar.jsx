@@ -15,7 +15,7 @@ export function SearchBar() {
       onSubmit={e => {
         e.preventDefault();
         if (search) {
-          setLocation(`/search/${search}`);
+          setLocation(`/search/${encodeURIComponent(search)}`);
         }
       }}>
       <TextField.Root size="3" radius="large">
