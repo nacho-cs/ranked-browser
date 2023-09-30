@@ -39,19 +39,26 @@ export function PlayerStats({ player, style }) {
         <Box>
           <Heading as="h4" weight="regular">
             <Text as="span" color="gray">
-              #{stats.elo_rank}
+              {rank ? `#${stats.elo_rank}` : ""}
             </Text>
             {` ${player}`}
           </Heading>
           <Box>
-            <GradientText from={from} to={to}>
-              {rank}
-            </GradientText>{" "}
-            (
-            <GradientText from={from} to={to}>
-              {stats.elo_rate}
-            </GradientText>
-            ) • {formatTime(new Date(stats.best_record_time))} pb
+            {rank ? (
+              <>
+                <GradientText from={from} to={to}>
+                  {rank}
+                </GradientText>{" "}
+                (
+                <GradientText from={from} to={to}>
+                  {stats.elo_rate}
+                </GradientText>
+                )
+              </>
+            ) : (
+              "Unranked"
+            )}{" "}
+            • {formatTime(new Date(stats.best_record_time))} pb
           </Box>
           <Box>
             {stats.current_winstreak} current winstreak • last online{" "}

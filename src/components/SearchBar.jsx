@@ -1,14 +1,11 @@
 import { TextField, Button } from "@radix-ui/themes";
 import { Search } from "react-bootstrap-icons";
 import { useLocation } from "wouter-preact";
-import { useRef } from "preact/compat";
-import { searchAtom } from "../utils";
-import { useAtom } from "jotai";
+import { useState } from "preact/compat";
 
 export function SearchBar() {
   const [, setLocation] = useLocation();
-  const [search, setSearch] = useAtom(searchAtom);
-  const inputRef = useRef();
+  const [search, setSearch] = useState("");
 
   return (
     <form
@@ -24,12 +21,8 @@ export function SearchBar() {
         </TextField.Slot>
         <TextField.Input
           placeholder="search anything..."
-          value={search}
           style={{ textAlign: "center" }}
-          ref={inputRef}
-          onChange={() => {
-            setSearch(inputRef.current.value);
-          }}
+          onChange={e => setSearch(e.target.value)}
         />
         <TextField.Slot>
           <Button size="1">Go</Button>
